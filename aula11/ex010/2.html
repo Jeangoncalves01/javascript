@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intercâmbio canadá</title>
+</head>
+<body>
+    <h1>Quer estudar no Exterior?</h1>
+    <form action="cadastro.php" method="post" autocomplete="on">
+        <p>Sistema de captação de alunos</p>
+        <p>
+            <label for="ipais">País</label>
+            <select name="pais" id="ipais">
+                <option value="">--- Escolha ---</option>
+                <option value="Argentina">Argentina</option>
+                <option value="Brasil">Brasil</option>
+                <option value="Dinamarca">Dinamarca</option>
+                <option value="Espanha">Espanha</option>
+                <option value="França">França</option>
+                <option value="Holanda">Holanda</option>
+            </select>
+            <input type="button" value="Verificar" onclick="calcular()">
+            
+        </p>
+    </form>
+    <div id="res"></div>
+    <script>
+        function calcular() {
+            var txtp = window.document.getElementById('ipais')
+            var res = window.document.getElementById('res')
+            var p = (txtp.value)
+            res.innerHTML = `<p>Seu país atual é <strong>${p}</strong></p>`
+            if (p == "Brasil" || p == "Argentina") {
+                res.innerHTML += `<p>Meus parabéns, você está qualifiado para a vaga!</p>`
+            } else {
+                res.innerHTML += `<p>Infelizmente você não poderá continuar sua canditadura, lamentamos muito por isso.</p>`
+            }
+        }
+    </script>
+</body>
+</html>
